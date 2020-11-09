@@ -881,7 +881,6 @@ impl std::fmt::Display for QrCode {
         let index_y = std::iter::successors(Some(0), |i| Some(i + 1))
             .take(self.size() as usize)
             .collect::<Vec<_>>();
-        writeln!(f)?;
         for elements in index_y.chunks(2) {
             writeln!(f)?;
             let y1 = elements.get(0);
@@ -909,6 +908,7 @@ impl std::fmt::Display for QrCode {
                 write!(f, "{}", character)?;
             }
         }
+        writeln!(f)?;
         writeln!(f)
     }
 }
