@@ -886,6 +886,7 @@ impl std::fmt::Display for QrCode {
             writeln!(f)?;
             let y1 = elements.get(0);
             let y2 = elements.get(1);
+            write!(f, "  ")?;
             for x in 0..self.size() {
                 let character = match (y1, y2) {
                     (Some(&y1), Some(&y2)) => {
@@ -905,10 +906,9 @@ impl std::fmt::Display for QrCode {
                     }
                     _ => "",
                 };
-                write!(f, "  {}", character)?;
+                write!(f, "{}", character)?;
             }
         }
-        writeln!(f)?;
         writeln!(f)
     }
 }
