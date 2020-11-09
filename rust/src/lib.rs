@@ -905,9 +905,10 @@ impl std::fmt::Display for QrCode {
                     }
                     _ => "",
                 };
-                write!(f, "{}", character)?;
+                write!(f, "  {}", character)?;
             }
         }
+        writeln!(f)?;
         writeln!(f)
     }
 }
